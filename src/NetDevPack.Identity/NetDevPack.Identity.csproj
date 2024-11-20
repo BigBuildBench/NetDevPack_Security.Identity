@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <LangVersion>10.0</LangVersion>
+    <AssemblyName>NetDevPack.Identity</AssemblyName>
+    <RootNamespace>NetDevPack.Identity</RootNamespace>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>Eduardo Pires</Authors>
+    <Company>desenvolvedor.io</Company>
+    <Description>.NET DevPack Identity is a set of common implementations to help you implementing Identity, Jwt, claims validation and another facilities</Description>
+    <PackageDescription>.NET DevPack Identity is a set of common implementations to help you implementing Identity, Jwt, claims validation and another facilities</PackageDescription>
+    <PackageProjectUrl>https://github.com/EduardoPires/NetDevPack</PackageProjectUrl>
+    <PackageId>NetDevPack.Identity</PackageId>
+    <PackageIcon>IconNuget.png</PackageIcon>
+    <RepositoryUrl>https://github.com/EduardoPires/NetDevPack</RepositoryUrl>
+    <Authors>EduardoPires</Authors>
+    <RepositoryType>Public</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.2.0</Version>
+  </PropertyGroup>
+
+  <Target Name="CopyHook" AfterTargets="AfterBuild" Condition="'$(Configuration)' == 'Debug'">
+    <ItemGroup>
+      <_CustomFiles Include="../../.github/hooks/commit-msg" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_CustomFiles)" DestinationFolder="../../.git/hooks" />
+  </Target>
+
+  <ItemGroup>
+    <None Include="..\..\assets\IconNuget.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+
+</Project>
